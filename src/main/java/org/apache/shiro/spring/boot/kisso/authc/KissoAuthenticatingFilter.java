@@ -107,7 +107,7 @@ public class KissoAuthenticatingFilter extends AbstractTrustableAuthenticatingFi
 				response.setCharacterEncoding(StandardCharsets.UTF_8.name());
 				
 				// Response Authentication status information
-				JSONObject.writeJSONString(response.getWriter(), AuthcResponse.fail(HttpStatus.SC_BAD_REQUEST, mString));
+				JSONObject.writeJSONString(response.getOutputStream(), AuthcResponse.fail(HttpStatus.SC_BAD_REQUEST, mString));
 				
 				return false;
 			}
@@ -128,7 +128,7 @@ public class KissoAuthenticatingFilter extends AbstractTrustableAuthenticatingFi
 				response.setCharacterEncoding(StandardCharsets.UTF_8.name());
 				
 				// Response Authentication status information
-				JSONObject.writeJSONString(response.getWriter(), AuthcResponse.fail(HttpStatus.SC_UNAUTHORIZED, mString));
+				JSONObject.writeJSONString(response.getOutputStream(), AuthcResponse.fail(HttpStatus.SC_UNAUTHORIZED, mString));
 				
 				return false;
 			}
