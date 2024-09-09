@@ -98,9 +98,9 @@ public class KissoAuthorizationFilter extends AbstracAuthorizationFilter {
 			// 响应异常状态信息
 			// URI验证失败
 			if (e instanceof URIUnpermittedException) {
-				JSONObject.writeJSONString(response.getWriter(), AuthcResponse.fail("URI Unpermitted Access."));
+				JSONObject.writeJSONString(response.getOutputStream(), AuthcResponse.fail("URI Unpermitted Access."));
 			} else {
-				JSONObject.writeJSONString(response.getWriter(), AuthcResponse.fail(HttpStatus.SC_FORBIDDEN, mString));
+				JSONObject.writeJSONString(response.getOutputStream(), AuthcResponse.fail(HttpStatus.SC_FORBIDDEN, mString));
 			}
 			
         } else {
